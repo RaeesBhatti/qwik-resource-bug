@@ -21,9 +21,11 @@ export default component$(() => {
 
     return (
         <>
-        <Link href="/">Homepage</Link>
+            <Link href="/">Homepage</Link>
             <Resource
                 value={resource}
+                onPending={() => <h1 class="text-4xl mb-6 font-bold">Loading</h1>}
+                onRejected={() => <div>Failed to load</div>}
                 onResolved={(data) => <>
                     <h1>{data.name}</h1>
                     {data.abilities.map(ability => (
